@@ -29,7 +29,7 @@ class call_log_test(unittest.TestCase):
         self.driver.find_element_by_xpath(
             "xpath=//*[@id='menuButton' and (./preceding-sibling::* | ./following-sibling::*)[@text='12 Aug, 21:05']]").click()
         assert self.driver.find_element_by_xpath("xpath=//*[@id='menuButton' and (./preceding-sibling::* | ./following-sibling::*))").is_displayed() is True
-
+#this is a new assertion
 
 
     def tearDown(self):

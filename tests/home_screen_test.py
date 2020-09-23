@@ -44,6 +44,7 @@ class HomeScreenTest(unittest.TestCase):
         assert self.driver.find_element_by_id('spacer').is_displayed()
         assert self.driver.find_element_by_id('tab_icon').is_displayed()
 
+
     def tearDown(self):
         self.driver.quit()
 

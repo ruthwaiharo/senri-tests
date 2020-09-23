@@ -27,22 +27,22 @@ class HomeScreenTest(unittest.TestCase):
         assert self.driver.find_element_by_accessibility_id('Open navigation drawer').is_displayed()
         assert self.driver.find_element_by_id('titleOnToolbar').is_displayed()
         assert self.driver.find_element_by_id('refreshMessage').is_displayed()
-        assert self.driver.find_element_by_id('todayActivityCaption').click().is_displayed() is True
-        assert self.driver.find_element_by_id('callLogCaption').click().is_displayed() is True
-        assert self.driver.find_element_by_id('callLogNavigationArrow').click().is_displayed() is True
-        assert self.driver.find_element_by_id('todayActivitySalesCaption').click().is_displayed() is True
-        assert self.driver.find_element_by_id('todayActivitySalesUnit').click().is_displayed() is True
-        assert self.driver.find_element_by_id('todayActivitySalesArrow').click().is_displayed() is True
-        assert self.driver.find_element_by_id('todayActivityVisitCaption').click().is_displayed() is True
-        assert self.driver.find_element_by_id('todayActivityVisitCount').click().is_displayed() is True
-        assert self.driver.find_element_by_id('yesterdayVisitCaption').click().is_displayed() is True
-        assert self.driver.find_element_by_id('yesterdayVisitCount').click().is_displayed() is True
-        assert self.driver.find_element_by_id('monthlyCaption').click().is_displayed() is True
-        assert self.driver.find_element_by_id('monthlySalesCaption').click().is_displayed() is True
-        assert self.driver.find_element_by_id('monthlySalesUnit').click().is_displayed() is True
-        assert self.driver.find_element_by_id('monthlySalesPrimaryCustomerArrow').click().is_displayed() is True
-        assert self.driver.find_element_by_id('spacer').click().is_displayed() is True
-        assert self.driver.find_element_by_id('tab_icon').click().is_displayed() is True
+        assert self.driver.find_element_by_id('todayActivityCaption').is_displayed()
+        assert self.driver.find_element_by_id('callLogCaption').is_displayed()
+        assert self.driver.find_element_by_id('callLogNavigationArrow').is_displayed()
+        assert self.driver.find_element_by_id('todayActivitySalesCaption').is_displayed()
+        assert self.driver.find_element_by_id('todayActivitySalesUnit').is_displayed()
+        assert self.driver.find_element_by_id('todayActivitySalesArrow').is_displayed()
+        assert self.driver.find_element_by_id('todayActivityVisitCaption').is_displayed()
+        assert self.driver.find_element_by_id('todayActivityVisitCount').is_displayed()
+        assert self.driver.find_element_by_id('yesterdayVisitCaption').is_displayed()
+        assert self.driver.find_element_by_id('yesterdayVisitCount').is_displayed()
+        assert self.driver.find_element_by_id('monthlyCaption').is_displayed()
+        assert self.driver.find_element_by_id('monthlySalesCaption').is_displayed()
+        assert self.driver.find_element_by_id('monthlySalesUnit').is_displayed()
+        assert self.driver.find_element_by_id('monthlySalesArrow').is_displayed()
+        assert self.driver.find_element_by_id('spacer').is_displayed()
+        assert self.driver.find_element_by_id('tab_icon').is_displayed()
 
     def tearDown(self):
         self.driver.quit()

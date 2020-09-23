@@ -25,7 +25,7 @@ class test_schedule_test(unittest.TestCase):
 
     def test_add_new_schedule(self):
         self.driver.find_element_by_xpath(
-            "xpath=//*[@id='check' and (./preceding-sibling::* | ./following-sibling::*)[@text='A']]").click()
+            "xpath=//*[@id='tab_icon']").click()
         WebDriverWait(self.driver, 30).until(
             expected_conditions.presence_of_element_located((By.XPATH, "//*[@text='SAVE']")))
         self.driver.find_element_by_xpath("xpath=//*[@text='SAVE']").click()

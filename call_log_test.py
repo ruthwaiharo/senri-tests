@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 
 
-class call_log_test(unittest.TestCase):
+class CallLogTest(unittest.TestCase):
     reportDirectory = 'reports'
     reportFormat = 'xml'
     dc = {}
@@ -23,13 +23,29 @@ class call_log_test(unittest.TestCase):
         self.dc['platformName'] = 'android'
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', self.dc)
 
-    def testUntitled(self):
+    def test_call_log_test_unknown_number(self):
         self.driver.find_element_by_xpath("xpath=//*[@text='Call Log']").click()
-        WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.XPATH, '//*[@id="menuButton" and (./preceding-sibling::* | ./following-sibling::*)[@text="12 Aug, 21:05"]]')))
-        self.driver.find_element_by_xpath(
-            "xpath=//*[@id='menuButton' and (./preceding-sibling::* | ./following-sibling::*)[@text='12 Aug, 21:05']]").click()
-        assert self.driver.find_element_by_xpath("xpath=//*[@id='menuButton' and (./preceding-sibling::* | ./following-sibling::*))").is_displayed() is True
+        WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.XPATH, '//*[@id="callLogCaption")'
+        self.driver.find_element_by_xpath("xpath=//*[@id='callLogCaption']").click()
+        assert self.driver.find_element_by_xpath("xpath=//*[@id='menuButton' and (./preceding-sibling::* | ./following-sibling::*)]").is_displayed() is True
 # this is a new assertion
+        formData = [user[account]: "grant2", user[password]: "grant2"....]
+        userResponse = requests.post("http://senri.afri-inc.com/users", formData).send
+        user = userResponse.body
+        self.driver.find_element_by_id("loginUserName").enterText("grant3")
+        self.driver.find_element_by_id("loginPassword").enterText("123456")
+        self.driver.find_element_by_id("logic").click()
+        self.driver.find_element_by_id("xpath=//*[@id='callLogCaption']").click()
+
+        def test_call_log_test(self):
+            formData = [user[account]: "grant2", user[password]: "grant2"....]
+            userResponse = requests.post("http://senri.afri-inc.com/users", formData).send
+            user = userResponse.body
+            self.driver.find_element_by_id("loginUserName").enterText("grant3")
+            self.driver.find_element_by_id("loginPassword").enterText("123456")
+            self.driver.find_element_by_id("logic").click()
+            self.driver.find_element_by_id("xpath=//*[@id='callLogCaption']").click()
+            assert self.driver.find_element_by_xpath("xpath=//*[@id='titleOnToolbar']").click().is_displayed() is True
 
 
     def tearDown(self):

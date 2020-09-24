@@ -24,19 +24,19 @@ class CallLogTest(unittest.TestCase):
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', self.dc)
 
     def testCallLog(self):
-        assert self.driver.find_element_by_accessibility_id('Navigate up').click().is_displayed() is True
-        assert self.driver.find_element_by_id('titleOnToolbar').click().is_displayed() is True
-        assert self.driver.find_element_by_id('displayTime').click().is_displayed() is True
-        assert self.driver.find_element_by_id('displayCustomerName').click().is_displayed() is True
-        assert self.driver.find_element_by_id('displayDetail').click().is_displayed() is True
-        assert self.driver.find_element_by_id('menuButton').click().is_displayed() is True
-        WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located(By.ID('menuButton')))
-        self.driver.find_element_by_id('menuButton').click()
-        assert self.driver.find_element_by_xpath("xpath=//*[@text='Add New Customer']").click().is_displayed
-        assert self.driver.find_element_by_xpath("xpath=//*[@text='Add Number']").click().is_displayed
-        WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located(By.ID('menuButton')))
-        self.driver.find_element_by_id('menuButton').click()
-        assert self.driver.find_element_by_xpath("xpath=//*[@text='Record Visit Report']").click()
+        assert self.driver.find_element_by_accessibility_id('Navigate up').is_displayed()
+        assert self.driver.find_element_by_id('titleOnToolbar').is_displayed()
+        assert self.driver.find_element_by_id('displayTime').is_displayed()
+        assert self.driver.find_element_by_id('displayCustomerName').is_displayed()
+        assert self.driver.find_element_by_id('displayDetail').is_displayed()
+        assert self.driver.find_element_by_id('menuButton').is_displayed()
+        # WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located(By.ID('menuButton')))
+        # self.driver.find_element_by_id('menuButton').click()
+        # assert self.driver.find_element_by_xpath("xpath=//*[@text='Add New Customer']").click().is_displayed
+        # assert self.driver.find_element_by_xpath("xpath=//*[@text='Add Number']").click().is_displayed
+        # WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located(By.ID('menuButton')))
+        # self.driver.find_element_by_id('menuButton').click()
+        # assert self.driver.find_element_by_xpath("xpath=//*[@text='Record Visit Report']").click()
 
     def tearDown(self):
         self.driver.quit()

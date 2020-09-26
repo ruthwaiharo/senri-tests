@@ -33,9 +33,9 @@ class CallLogTest(unittest.TestCase):
     def testExistingCustomer(self):
         self.driver.find_element_by_id('callLogCaption').click()
         WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.ID, "menuButton")))
-        self.driver.find_element_by_id("menuButton").click()
-        title = self.driver.find_element_by_id("title")
-        assert title.text == "Record Visit Report"
+        self.driver.swipe(20, 168, 694, 1335)
+        self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ListView/android.view.ViewGroup[5]/android.widget.ImageView[1]")
+        assert self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ListView/android.view.ViewGroup[5]/android.widget.ImageView[1]").is_displayed()
 
     def tearDown(self):
         self.driver.quit()

@@ -23,14 +23,14 @@ class CallLogTest(unittest.TestCase):
         self.dc['platformName'] = 'android'
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', self.dc)
 
-    def testNewCustomer(self):
+    def testNewCustomer_contacts_are_shown(self):
         self.driver.find_element_by_id('callLogCaption').click()
         WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.ID, "menuButton")))
         self.driver.find_element_by_id("menuButton").click()
         assert self.driver.find_element_by_xpath("xpath=//*[@text='Add New Customer']").is_displayed()
         assert self.driver.find_element_by_xpath("xpath=//*[@text='Add Number']").is_displayed()
 
-    def testExistingCustomer(self):
+    def testExistingCustomer_contacts_are_shown(self):
         self.driver.find_element_by_id('callLogCaption').click()
         WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.ID, "menuButton")))
         self.driver.swipe(20, 168, 694, 1335)

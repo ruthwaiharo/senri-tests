@@ -24,20 +24,21 @@ class ScheduleTest(unittest.TestCase):
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', self.dc)
 
     def testSchedule(self):
-        assert self.driver.find_element_by_accessibility_id('Open navigation drawer').click().is_displayed() is True
-        assert self.driver.find_element_by_id('titleOnToolbar').click().is_displayed() is True
-        assert self.driver.find_element_by_id('actionButton').click().is_displayed() is True
-        assert self.driver.find_element_by_id('scroll_to_today').click().is_displayed() is True
-        assert self.driver.find_element_by_accessibility_id('Display Removed Plan').click().is_displayed() is True
-        assert self.driver.find_element_by_id('More options').click().is_displayed() is True
-        assert self.driver.find_element_by_id('downloadImageView').click().is_displayed() is True
-        assert self.driver.find_element_by_id('announceText').click().is_displayed() is True
-        assert self.driver.find_element_by_id('displayDate').click().is_displayed() is True
-        assert self.driver.find_element_by_id('menuButton').click().is_displayed() is True
-        assert self.driver.find_element_by_id('').click().is_displayed() is True
-        assert self.driver.find_element_by_id('displayCustomerName').click().is_displayed() is True
-        assert self.driver.find_element_by_id('navigationArrow').click().is_displayed() is True
-        assert self.driver.find_element_by_id('listView').click().is_displayed() is True
+        self.driver.find_element_by_xpath("//androidx.appcompat.app.ActionBar.Tab[@content-desc='SCHEDULE']/android.view.ViewGroup").click()
+        assert self.driver.find_element_by_accessibility_id('Open navigation drawer').is_displayed()
+        assert self.driver.find_element_by_id('titleOnToolbar').is_displayed()
+        assert self.driver.find_element_by_id('actionButton').is_displayed()
+        assert self.driver.find_element_by_id('scroll_to_today').is_displayed()
+        assert self.driver.find_element_by_accessibility_id('Display Removed Plan').is_displayed()
+        assert self.driver.find_element_by_id('More options').is_displayed()
+        assert self.driver.find_element_by_id('downloadImageView').is_displayed()
+        assert self.driver.find_element_by_id('announceText').is_displayed()
+        assert self.driver.find_element_by_id('displayDate').is_displayed()
+        assert self.driver.find_element_by_id('menuButton').is_displayed()
+        assert self.driver.find_element_by_id('').is_displayed()
+        assert self.driver.find_element_by_id('displayCustomerName').is_displayed()
+        assert self.driver.find_element_by_id('navigationArrow').is_displayed()
+        assert self.driver.find_element_by_id('listView').is_displayed()
 
     def tearDown(self):
         self.driver.quit()

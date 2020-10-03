@@ -23,20 +23,19 @@ class CallLogTest(unittest.TestCase):
         self.dc['platformName'] = 'android'
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', self.dc)
 
-    def testCallLog(self):
-        assert self.driver.find_element_by_accessibility_id('Navigate up').is_displayed()
-        assert self.driver.find_element_by_id('titleOnToolbar').is_displayed()
-        assert self.driver.find_element_by_id('displayTime').is_displayed()
-        assert self.driver.find_element_by_id('displayCustomerName').is_displayed()
-        assert self.driver.find_element_by_id('displayDetail').is_displayed()
-        assert self.driver.find_element_by_id('menuButton').is_displayed()
-        # WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located(By.ID('menuButton')))
-        # self.driver.find_element_by_id('menuButton').click()
-        # assert self.driver.find_element_by_xpath("xpath=//*[@text='Add New Customer']").click().is_displayed
-        # assert self.driver.find_element_by_xpath("xpath=//*[@text='Add Number']").click().is_displayed
-        # WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located(By.ID('menuButton')))
-        # self.driver.find_element_by_id('menuButton').click()
-        # assert self.driver.find_element_by_xpath("xpath=//*[@text='Record Visit Report']").click()
+    def testNewCustomer_contacts_are_shown(self):
+        self.driver.find_element_by_id('callLogCaption').click()
+        WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.ID, "menuButton")))
+        self.driver.find_element_by_id("menuButton").click()
+        assert self.driver.find_element_by_xpath("xpath=//*[@text='Add New Customer']").is_displayed()
+        assert self.driver.find_element_by_xpath("xpath=//*[@text='Add Number']").is_displayed()
+
+    def testExistingCustomer_contacts_are_shown(self):
+        self.driver.find_element_by_id('callLogCaption').click()
+        WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.ID, "menuButton")))
+        self.driver.swipe(20, 168, 694, 1335)
+        self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ListView/android.view.ViewGroup[5]/android.widget.ImageView[1]")
+        assert self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ListView/android.view.ViewGroup[5]/android.widget.ImageView[1]").is_displayed()
 
     def tearDown(self):
         self.driver.quit()

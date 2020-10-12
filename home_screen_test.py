@@ -24,8 +24,8 @@ class HomeScreenTest(unittest.TestCase):
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', self.dc)
 
     def testHomeScreen(self):
-        assert self.driver.find_element_by_accessibility_id('Open navigation drawer').is_displayed()
-        assert self.driver.find_element_by_id('titleOnToolbar').is_displayed()
+        # assert self.driver.find_element_by_accessibility_id('Open navigation drawer').is_displayed()
+        # assert self.driver.find_element_by_id('titleOnToolbar').is_displayed()
         assert self.driver.find_element_by_id('refreshMessage').is_displayed()
         assert self.driver.find_element_by_id('todayActivityCaption').is_displayed()
         assert self.driver.find_element_by_id('callLogCaption').is_displayed()

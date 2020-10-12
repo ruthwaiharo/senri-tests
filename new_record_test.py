@@ -37,13 +37,12 @@ class NewRecordTest(unittest.TestCase):
         assert self.driver.find_element_by_id('customerName').is_displayed()
         assert self.driver.find_element_by_id('subInfo').is_displayed()
         assert self.driver.find_element_by_id('customerPriority').is_displayed()
-        # assert self.driver.find_element_by_id('addCustomer').is_displayed()
+        assert self.driver.find_element_by_id('fabButton').is_displayed()
 
     def testFilterOption(self):
         self.driver.find_element_by_id('spacer').click()
         WebDriverWait(self.driver, 10).until(expected_conditions.presence_of_element_located((By.ID, "filterBy")))
         self.driver.find_element_by_id('filterBy').click()
-        # self.driver.find_element_by_xpath("xpath=//*[@text='FILTER']").click()
         assert self.driver.find_element_by_id('alertTitle').is_displayed()
         assert self.driver.find_element_by_xpath("xpath=//*[@text='All']").is_displayed()
         assert self.driver.find_element_by_xpath("xpath=//*[@text='Primary Customer']").is_displayed()

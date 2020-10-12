@@ -37,7 +37,7 @@ class NewRecordTest(unittest.TestCase):
         assert self.driver.find_element_by_id('customerName').is_displayed()
         assert self.driver.find_element_by_id('subInfo').is_displayed()
         assert self.driver.find_element_by_id('customerPriority').is_displayed()
-        # assert self.driver.find_element_by_id('addCustomer').is_displayed()
+        assert self.driver.find_element_by_id('fabButton').is_displayed()
 
     def testFilterOption(self):
         self.driver.find_element_by_id('spacer').click()

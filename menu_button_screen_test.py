@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 
 
-class Untitled(unittest.TestCase):
+class MenuButtonScreenTest(unittest.TestCase):
     reportDirectory = 'reports'
     reportFormat = 'xml'
     dc = {}
@@ -38,10 +38,10 @@ class Untitled(unittest.TestCase):
         assert self.driver.find_element_by_id('otherShowRefreshDetail').is_displayed()
         assert self.driver.find_element_by_id('otherLastUpdateTime').is_displayed()
         assert self.driver.find_element_by_id('otherDownloadAndRefresh').is_displayed()
-        # self.driver.swipe('[0, 1286][560, 1356],[32,1259][197,1340]')
-        # assert self.driver.find_element_by_id('otherAbout').is_displayed()
-        # assert self.driver.find_element_by_id('otherLogOut').is_displayed()
-        # assert self.driver.find_element_by_id('version').is_displayed()
+        self.driver.swipe('[0, 1286][560, 1356],[32,1259][197,1340]')
+        assert self.driver.find_element_by_id('otherAbout').is_displayed()
+        assert self.driver.find_element_by_id('otherLogOut').is_displayed()
+        assert self.driver.find_element_by_id('version').is_displayed()
 
     def tearDown(self):
         self.driver.quit()

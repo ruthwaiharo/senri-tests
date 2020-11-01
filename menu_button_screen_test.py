@@ -1,10 +1,6 @@
 import unittest
-import time
 from appium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-
+from selenium import webdriver
 
 class MenuButtonScreenTest(unittest.TestCase):
     reportDirectory = 'reports'
@@ -23,7 +19,7 @@ class MenuButtonScreenTest(unittest.TestCase):
         self.dc['platformName'] = 'android'
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', self.dc)
 
-    def testUntitled(self):
+    def testMenuButtonScreen(self):
         self.driver.find_element_by_accessibility_id('Open navigation drawer').click()
         assert self.driver.find_element_by_id('accountName').is_displayed()
         assert self.driver.find_element_by_id('companyName').is_displayed()

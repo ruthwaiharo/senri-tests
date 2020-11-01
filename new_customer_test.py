@@ -1,10 +1,6 @@
 import unittest
-import time
 from appium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-
+from selenium import webdriver
 
 class NewCustomerTest(unittest.TestCase):
     reportDirectory = 'reports'
@@ -26,7 +22,7 @@ class NewCustomerTest(unittest.TestCase):
     def testReturnButtonPrompt(self):
         self.driver.find_element_by_id('spacer').click()
         self.driver.find_element_by_id('fabButton').click()
-        assert self.driver.find_element_by_accessibility_id('Navigate up').click()
+        self.driver.find_element_by_accessibility_id('Navigate up').click()
         assert self.driver.find_element_by_id('alertTitle').is_displayed()
         assert self.driver.find_element_by_id('message').is_displayed()
         assert self.driver.find_element_by_xpath("xpath=//*[@text='DISCARD']").is_displayed()
@@ -44,7 +40,7 @@ class NewCustomerTest(unittest.TestCase):
         assert self.driver.find_element_by_xpath("xpath=//*[@text='Primary Customer']").is_displayed()
         assert self.driver.find_element_by_xpath("xpath=//*[@text='Secondary Customer']").is_displayed()
         assert self.driver.find_element_by_xpath("xpath=//*[@text='Tier']").is_displayed()
-        assert self.driver.find_element_by_xpath("xpath=//*[@text='CustomerType']").is_displayed()
+        assert self.driver.find_element_by_xpath("xpath=//*[@text='Customer Type']").is_displayed()
         assert self.driver.find_element_by_xpath("xpath=//*[@text='Region']").is_displayed()
         assert self.driver.find_element_by_xpath("xpath=//*[@text='Area']").is_displayed()
         self.driver.swipe(588, 925, 588, 65, 1123)

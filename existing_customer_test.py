@@ -1,10 +1,9 @@
 import unittest
-import time
+from selenium import webdriver
 from appium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
-
 
 class ExistingCustomerTest(unittest.TestCase):
     reportDirectory = 'reports'
@@ -64,7 +63,7 @@ class ExistingCustomerTest(unittest.TestCase):
         self.driver.find_element_by_id('spacer').click()
         WebDriverWait(self.driver, 10).until(expected_conditions.presence_of_element_located((By.ID,'customerName')))
         self.driver.find_element_by_id('customerName').click()
-        assert self.driver.find_element_by_id('action_edit').click()
+        self.driver.find_element_by_id('action_edit').click()
         assert self.driver.find_element_by_accessibility_id('Navigate up').is_displayed()
         assert self.driver.find_element_by_id('titleOnToolbar').is_displayed()
         assert self.driver.find_element_by_id('customerGroupCaption').is_displayed()
@@ -74,7 +73,7 @@ class ExistingCustomerTest(unittest.TestCase):
         assert self.driver.find_element_by_xpath("xpath=//*[@text='Primary Customer']").is_displayed()
         assert self.driver.find_element_by_xpath("xpath=//*[@text='Secondary Customer']").is_displayed()
         assert self.driver.find_element_by_xpath("xpath=//*[@text='Tier']").is_displayed()
-        assert self.driver.find_element_by_xpath("xpath=//*[@text='CustomerType']").is_displayed()
+        assert self.driver.find_element_by_xpath("xpath=//*[@text='Customer Type']").is_displayed()
         assert self.driver.find_element_by_xpath("xpath=//*[@text='Region']").is_displayed()
         assert self.driver.find_element_by_xpath("xpath=//*[@text='Area']").is_displayed()
         self.driver.swipe(588, 925, 588, 65, 1123)
@@ -91,9 +90,6 @@ class ExistingCustomerTest(unittest.TestCase):
         assert self.driver.find_element_by_id('photoGroupCaption').is_displayed()
         assert self.driver.find_element_by_id('addPhotoText').is_displayed()
         assert self.driver.find_element_by_id('navigationButton').click()
-
-
-
 
     def tearDown(self):
         self.driver.quit()
